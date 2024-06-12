@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
+
+.body
+{
+    background-color:#f5eee7;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    height: 575px;
+}
+
+.card
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+    margin: 50px;
+    margin-left: 350px;
+    padding: 20px;
+    width: 500px;
+}
+
+.each {
+    border: 1px solid black;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.btn{
+    border: none;
+    background: white;
+    font-size: x-large;
+    font-family: system-ui;
+    width: 450px;
+    cursor: pointer;
+}
+
+.email{
+    padding-top: 15px;
+    /* font-size: small; */
+}
+
+.sbtn{
+    border: none;
+    background: lightblue;
+    font-size: large;
+    font-weight: 500;
+    font-family: system-ui;
+    width: 500px;
+    padding: 5px;
+    border-radius: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.img{
+    height: 100px;
+    width: 100px;
+}
+
+input{
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.creditcard{
+    text-align: -webkit-right;
+    margin-right: 80px;
+}
+       
