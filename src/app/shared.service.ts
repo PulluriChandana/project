@@ -1,0 +1,17 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { product } from './product/productmodal';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class SharedService {
+  private apiUrl = 'http://localhost:5281/api/products';
+
+  constructor(private httpClient: HttpClient) {}
+
+  getProduct(): Observable<product[]> {
+    return this.httpClient.get<product[]>(this.apiUrl);
+  }
+}
