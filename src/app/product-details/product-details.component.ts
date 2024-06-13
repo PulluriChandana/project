@@ -1,20 +1,31 @@
-import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { SharedService } from '../shared.service';
+import { product } from '../product/productmodal';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-product-details',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './product-details.component.html',
-  styleUrl: './product-details.component.css'
+  styleUrls: ['./product-details.component.css'],
+  standalone: true,
+  imports: [CommonModule]
 })
-export class ProductDetailsComponent{
-  // constructor(private api:SharedService, private activatedroute:ActivatedRoute){}
-  // ngOnInit(): void{
-  //   let productid=this.activatedroute.snapshot.paramMap.get('productid');
-  //   console.log("product id is", productid);
-  // }
+export class ProductDetailsComponent implements OnInit {
+  product: product | undefined;
 
+  constructor(private route: ActivatedRoute, private api: SharedService) {}
+
+  ngOnInit(): void {
+    const productId = this.route.snapshot.paramMap.get('id');
+    if (productId) {
+      this.getProductDetails(parseInt(productId, 10));
+    }
+  }
+
+  getProductDetails(productId: number): void {
+    this.api.getProductById(productId).subscribe(res => {
+      this.product = res;
+    });
+  }
 }

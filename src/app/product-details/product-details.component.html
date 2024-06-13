@@ -1,31 +1,18 @@
-<nav class="navbar bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" style="color:white">E-Comm website</a>
+<div class="product-details-container" *ngIf="product">
+    <div class="product-image">
+      <img [src]="product.thumbnail" alt="{{ product.title }}">
     </div>
-</nav>
-
-
-<div class="container">
-    <div class="row productdet">
-        <div class="col-sm-3">
-            <img class="product-img" src="">
-        </div>
-        <button class="btn btn-primary">Buy Now</button>
-        <button class="btn btn-success">Add to Cart</button> 
+    <div class="product-info">
+      <h2>{{ product.title }}</h2>
+      <p><strong>Description:</strong> {{ product.description }}</p>
+      <p><strong>Price:</strong> ₹ {{ product.price }}</p>
+      <p><strong>Rating:</strong> {{ product.rating }}</p>
+      <p><strong>Category:</strong> {{ product.category }}</p>
+      <p><strong>Tags:</strong> {{ product.tags }}</p>
+      <!-- Add more details as needed -->
     </div>
-</div>
-
-
-<div class="col-sm-8">
-    <div>
-        <h1>HP 8 GB PENDRIVE</h1>
-        <p style="color:green">Special Price</p>
-        <h3>Price: $30</h3>
-        <strong>Category:&nbsp; Electronics</strong><br>
-        <strong>Description:</strong><br>
-        <p>Durable metal Charming appearance which brings a great sense of style Electronic plating after pr
-         </p>
-    </div>
-</div>
-
-
+  </div>
+  <div *ngIf="!product">
+    <p>Loading product details...</p>
+  </div>
+  

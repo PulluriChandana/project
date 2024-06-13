@@ -1,5 +1,4 @@
-import { DecimalPipe } from "@angular/common";
-
+//product.modal.ts
 export interface product{
     id:number;
     title:string;

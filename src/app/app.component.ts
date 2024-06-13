@@ -1,4 +1,3 @@
-//app.component.ts
 import { Component } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -12,17 +11,26 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { HttpClientModule } from '@angular/common/http';
 import { SharedService } from './shared.service';
 
-
 @Component({
   selector: 'app-root',
   standalone: true,
   providers: [SharedService],
-  imports: [RouterOutlet, HomeComponent, AboutUsComponent, ContactUsComponent, HttpClientModule,
-    RouterModule, NotFoundComponent, RegisterComponent, LoginComponent, ProductComponent, ProductDetailsComponent],
+  imports: [
+    RouterOutlet, 
+    HomeComponent, 
+    AboutUsComponent, 
+    ContactUsComponent, 
+    NotFoundComponent, 
+    RegisterComponent, 
+    LoginComponent, 
+    ProductComponent, 
+    ProductDetailsComponent, 
+    HttpClientModule,
+    RouterModule
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
-
 export class AppComponent {
   title = 'project';
 }

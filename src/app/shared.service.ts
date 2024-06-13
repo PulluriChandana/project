@@ -14,4 +14,8 @@ export class SharedService {
   getProduct(): Observable<product[]> {
     return this.httpClient.get<product[]>(this.apiUrl);
   }
+
+  getProductById(id: number): Observable<product> {
+    return this.httpClient.get<product>(`${this.apiUrl}/${id}`);
+  }
 }

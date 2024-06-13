@@ -6,23 +6,23 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { NgModule } from '@angular/core';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { PaymentComponent } from './payment/payment.component';
+import { ProductComponent } from './product/product.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 export const routes: Routes = [
-    {path:'home',component:HomeComponent},
+    { path: 'home', component: HomeComponent },
     { path: "", redirectTo: "home", pathMatch: "full" },
     { path: 'about', component: AboutUsComponent },
     { path: 'contact', component: ContactUsComponent },
-    {path:'register',component:RegisterComponent},
-    {path:'login',component:LoginComponent},
-    {path:'payment', component: PaymentComponent},
+    { path: 'register', component: RegisterComponent },
+    { path: 'login', component: LoginComponent },
+    { path: "product", component: ProductComponent },
+    {  path: 'productdet/:id', component: ProductDetailsComponent },
     { path: '**', component: NotFoundComponent }
-    
-  
 ];
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
-  })
-  export class AppRoutingModule { }
+})
+export class AppRoutingModule { }

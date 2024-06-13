@@ -1,4 +1,4 @@
-<div class="container-fluid" style="background-color:rgb(240, 231, 231); padding: 20px;">
+<div class="container-fluid" style="background-color:rgb(248, 245, 216); padding: 20px;">
     <!-- Sorting and Filtering Section -->
     <div class="row mb-3">
         <div class="col-md-4">
@@ -27,31 +27,33 @@
     </div>
 
     <!-- Products Grid -->
-    <div class="row">
-        <div class="col-md-4 mt-3" *ngFor="let item of filteredData">
-            <div class="card mt-2">
-                <div class="card-body">
-                    <div class="card-img-actions">
-                        <img (click)="action()" src="{{item.thumbnail}}" class="card-img img-fluid">
+    <div class="product-line">
+        <div class="card-container">
+            <ng-container *ngFor="let item of filteredData">
+                <div class="card mt-2">
+                    <div class="card-body">
+                        <div class="card-img-actions">
+                            <img (click)="action(item.id)" src="{{item.thumbnail}}" class="card-img img-fluid">
+                        </div>
+                    </div>
+                    <div class="card-body bg-light text-center">
+                        <div>
+                            <h6 class="font-weight semi-bolded">
+                                <a class="text-default">{{item.title}}</a>
+                            </h6>
+                        </div>
+                        <div>
+                            <h3 class="mb-e font-weight-semibold">₹ {{item.price}}</h3>
+                            <button (click)="action(item.id)" class="btn btn-sm btn-dark mt-2">
+                                <i class="fa fa-solid fa-info mr-2"></i>&nbsp; View Details
+                            </button>
+                            <button class="btn btn-sm btn-warning mt-2">
+                                <i class="fa fa-cart-plus mr-2"></i>&nbsp; Add to cart
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <div class="card-body bg-light text-center">
-                    <div>
-                        <h6 class="font-weight semi-bolded">
-                            <a class="text-default">{{item.title}}</a>
-                        </h6>
-                    </div>
-                    <div>
-                        <h3 class="mb-e font-weight-semibold">₹ {{item.price}}</h3>
-                        <button (click)="action()" class="btn btn-sm btn-dark mt-2">
-                            <i class="fa fa-solid fa-info mr-2"></i>&nbsp; View Details
-                        </button>
-                        <button class="btn btn-sm btn-warning mt-2">
-                            <i class="fa fa-cart-plus mr-2"></i>&nbsp; Add to cart
-                        </button>
-                    </div>
-                </div>
-            </div>
+            </ng-container>
         </div>
     </div>
 </div>

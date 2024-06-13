@@ -62,7 +62,7 @@ export class ProductComponent implements OnInit {
     }
   }
 
-  action() {
-    this.router.navigate(['/productdet']);
+  action(productId:number) {
+    this.router.navigate(['/productdet', productId]);
   }
 }
