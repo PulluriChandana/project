@@ -7,11 +7,11 @@ import { product } from './product/productmodal';
   providedIn: 'root'
 })
 export class CartService {
+  private cart: { item: product, quantity: number }[] = [];
   private cartSubject = new BehaviorSubject<{ item: product, quantity: number }[]>([]);
   cart$ = this.cartSubject.asObservable();
 
   constructor() {
-    // Load cart items from localStorage on initialization
     this.loadCart();
   }
 
@@ -26,7 +26,37 @@ export class CartService {
     }
 
     this.cartSubject.next(currentCart);
-    this.saveCart(currentCart); // Save updated cart to localStorage
+    this.saveCart(currentCart);
+  }
+
+  removeFromCart(product: product): void {
+    const currentCart = this.cartSubject.value.filter(item => item.item.id !== product.id);
+    this.cartSubject.next(currentCart);
+    this.saveCart(currentCart);
+  }
+
+  increaseQuantity(product: product): void {
+    const currentCart = this.cartSubject.value;
+    const itemIndex = currentCart.findIndex(item => item.item.id === product.id);
+
+    if (itemIndex >= 0) {
+      currentCart[itemIndex].quantity++;
+      this.cartSubject.next(currentCart);
+      this.saveCart(currentCart);
+    }
+  }
+
+  decreaseQuantity(product: product): void {
+    const currentCart = this.cartSubject.value;
+    const itemIndex = currentCart.findIndex(item => item.item.id === product.id);
+
+    if (itemIndex >= 0) {
+      if (currentCart[itemIndex].quantity > 1) {
+        currentCart[itemIndex].quantity--;
+        this.cartSubject.next(currentCart);
+        this.saveCart(currentCart);
+      }
+    }
   }
 
   getCartItems(): { item: product, quantity: number }[] {

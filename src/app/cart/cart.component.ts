@@ -25,6 +25,18 @@ export class CartComponent implements OnInit {
     });
   }
 
+  decreaseQuantity(product: product): void {
+    this.cartService.decreaseQuantity(product);
+  }
+
+  increaseQuantity(product: product): void {
+    this.cartService.increaseQuantity(product);
+  }
+
+  removeFromCart(product: product): void {
+    this.cartService.removeFromCart(product);
+  }
+
   checkout(): void {
     // Navigate to payment component
     this.router.navigate(['/payment']);

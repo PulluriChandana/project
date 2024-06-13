@@ -7,12 +7,9 @@ import { NgModule } from '@angular/core';
 import { LoginComponent } from './login/login.component';
 import { ProductComponent } from './product/product.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
-<<<<<<< Updated upstream
 import { CartComponent } from './cart/cart.component';
 import { PaymentComponent } from './payment/payment.component';
-=======
 import { RegisteruserComponent } from './registeruser/registeruser.component';
->>>>>>> Stashed changes
 
 export const routes: Routes = [
     { path: 'home', component: HomeComponent },

@@ -9,11 +9,8 @@ import { ProductComponent } from './product/product.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedService } from './shared.service';
-<<<<<<< Updated upstream
 import { PaymentComponent } from './payment/payment.component';
-=======
 import { RegisteruserComponent } from './registeruser/registeruser.component';
->>>>>>> Stashed changes
 
 @Component({
   selector: 'app-root',
@@ -29,13 +26,9 @@ import { RegisteruserComponent } from './registeruser/registeruser.component';
     ProductComponent, 
     ProductDetailsComponent, 
     HttpClientModule,
-<<<<<<< Updated upstream
     PaymentComponent,
-    RouterModule
-=======
     RouterModule,
     RegisteruserComponent
->>>>>>> Stashed changes
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']

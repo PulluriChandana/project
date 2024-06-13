@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { SharedService } from '../shared.service';
 import { product } from '../product/productmodal';
 import { CommonModule } from '@angular/common';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -14,7 +16,12 @@ import { CommonModule } from '@angular/common';
 export class ProductDetailsComponent implements OnInit {
   product: product | undefined;
 
-  constructor(private route: ActivatedRoute, private api: SharedService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private api: SharedService,
+    private cartService: CartService // Inject CartService
+  ) { }
 
   ngOnInit(): void {
     const productId = this.route.snapshot.paramMap.get('id');
@@ -27,5 +34,9 @@ export class ProductDetailsComponent implements OnInit {
     this.api.getProductById(productId).subscribe(res => {
       this.product = res;
     });
+  }
+  addToCart(product: product): void {
+    this.cartService.addToCart(product); // Add the product to the cart
+    this.router.navigate(['/cart']); // Navigate to the cart page
   }
 }

@@ -10,7 +10,9 @@
       <p><strong>Category:</strong> {{ product.category }}</p>
       <p><strong>Tags:</strong> {{ product.tags }}</p>
       <!-- Add more details as needed -->
+      <button class="btn btn-primary" (click)="addToCart(product)">Add to Cart</button>
     </div>
+
   </div>
   <div *ngIf="!product">
     <p>Loading product details...</p>
