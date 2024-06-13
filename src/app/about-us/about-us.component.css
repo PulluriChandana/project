@@ -1,0 +1,19 @@
+.container-class{
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+h1 {
+    color: #333;
+    text-align: center;
+}
+p {
+    color: #666;
+}

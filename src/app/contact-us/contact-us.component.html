@@ -1,39 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Page Design</title>
+<title>Contact Page Design</title>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
     <link rel="stylesheet" href="contact-us.component.css" />
-  </head>
   <body>
     <div class="img">
     <img src="https://public-files.hoa-express.com/website-1125211413/pages/page-3297395191/FC9jYiLJfNpiHyJE.gif">
   </div>
-    <div class="container">
-      <h2>Get in touch</h2>
-      <p>Feel free to contact me about anything related to Web Development.</p>
-      <form class="contact-form">
-        <div class="input-area">
-          <input type="text" placeholder="Your name" />
-        </div>
-        <div class="input-area">
-          <input type="email" placeholder="Email address" />
-        </div>
-        <div class="input-area">
-          <input type="text" placeholder="Subject" />
-        </div>
-        <div class="input-area h-80">
-          <textarea placeholder="Your message"></textarea>
-        </div>
-        <button class="sendbtn">Send</button>
-      </form>
-    </div>
+  <div class="container">
+    <h2>Get in touch</h2>
+    <p>Feel free to contact me about anything related to Web Development.</p>
+    <form class="contact-form" (submit)="handleSubmit()">
+      <div class="input-area">
+        <input type="text" placeholder="Your name" [(ngModel)]="formData.name" name="name" required>
+      </div>
+      <div class="input-area">
+        <input type="email" placeholder="Email address" [(ngModel)]="formData.email" name="email" required>
+      </div>
+      <div class="input-area">
+        <input type="text" placeholder="Subject" [(ngModel)]="formData.subject" name="subject" required>
+      </div>
+      <div class="input-area h-80">
+        <textarea placeholder="Your message" [(ngModel)]="formData.message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="sendbtn">Send</button>
+    </form>
+  </div>
     <div class="social-container">
       <div class="custom-social-container">
         <p>Contact me on</p>
@@ -87,6 +79,3 @@
         </ul>
       </div>
     </div>
-    
-  </body>
-</html>

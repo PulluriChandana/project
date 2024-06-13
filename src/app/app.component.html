@@ -1,13 +1,23 @@
-<!-- app.component.html -->
-<div style="background-color: #232f3e; padding: 10px;">
-
-  <a routerLink="home" style="color: white; text-decoration: none; margin-right: 20px;">Home</a>
-  <a routerLink="about" style="color: white; text-decoration: none; margin-right: 20px;">About</a>
-  <a routerLink="contact" style="color: white; text-decoration: none; margin-right: 20px;">Contact</a>
-  <a routerLink="register" style="color: white; text-decoration: none; margin-right: 20px;">Register</a>
-  <a routerLink="login" style="color: white; text-decoration: none; margin-right: 20px;">Login</a>
-  <a routerLink="product" style="color: white; text-decoration: none; margin-right: 20px;">Products</a>
-  
+<div style="background-color: #232f3e; padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+  <div>
+    <a routerLink="/home" style="color: white; text-decoration: none; margin-right: 20px;">Home</a>
+    <a routerLink="/about" style="color: white; text-decoration: none; margin-right: 20px;">About</a>
+    <a routerLink="/contact" style="color: white; text-decoration: none; margin-right: 20px;">Contact</a>
 </div>
-
+<div style="flex-grow: 1; display: flex; justify-content: center; align-items: center; position: relative;">
+  <input type="text" placeholder="Search..." style="padding: 5px; border-radius: 5px; border: 1px solid #ccc; width: 70%;">
+  <span class="fas fa-search search-icon" style="position: absolute; left: 685px; color: lightslategray;"></span>
+</div>
+  <div>
+    <a routerLink="/login" style="color: white; text-decoration: none; margin-right: 20px;">Login</a>
+    <a routerLink="/register" style="color: white; text-decoration: none; margin-right: 20px;">Register</a>
+    <button style="background-color: transparent; border: none;">
+      <a routerLink="cart" style="color: white; text-decoration: none;">
+        <i class="fa fa-cart-plus mr-2"></i>
+        <div style="font-size: 10px;" class="badge bg-danger"></div>
+      </a>
+    </button>
+  </div>
+</div>
 <router-outlet></router-outlet>
+

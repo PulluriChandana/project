@@ -12,7 +12,6 @@ body{
   justify-content: center;
   align-items: center;
   padding: 10px;
-  /*background: url("https://cdn.wallpapersafari.com/34/9/ctNTvn.jpg"), #000;*/
   background-color: lightyellow;
 
 }
@@ -125,3 +124,30 @@ form .user-details .input-box{
     flex-direction: column;
   }
 }
+.register-button {
+    background: rgb(209, 223, 25);
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    border-radius: 5px;
+    height: 45px;
+    width: 100%;
+  }
+  
+  .register-button:hover {
+    background: rgb(209, 223, 25);
+    color: #000;
+    font-weight: 600;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 16px;
+    border: 2px solid transparent;
+    transition: 0.3s ease;
+  }
+  

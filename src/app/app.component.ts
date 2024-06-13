@@ -4,13 +4,16 @@ import { HomeComponent } from './home/home.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ProductComponent } from './product/product.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedService } from './shared.service';
+<<<<<<< Updated upstream
 import { PaymentComponent } from './payment/payment.component';
+=======
+import { RegisteruserComponent } from './registeruser/registeruser.component';
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-root',
@@ -22,13 +25,17 @@ import { PaymentComponent } from './payment/payment.component';
     AboutUsComponent, 
     ContactUsComponent, 
     NotFoundComponent, 
-    RegisterComponent, 
     LoginComponent, 
     ProductComponent, 
     ProductDetailsComponent, 
     HttpClientModule,
+<<<<<<< Updated upstream
     PaymentComponent,
     RouterModule
+=======
+    RouterModule,
+    RegisteruserComponent
+>>>>>>> Stashed changes
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
