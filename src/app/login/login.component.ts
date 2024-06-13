@@ -45,6 +45,7 @@ export class LoginComponent {
           error:(err)=>{
             alert(err.error.message);
             this.loginForm.reset();
+            this.router.navigate(['/product']); 
           }
         })
      }

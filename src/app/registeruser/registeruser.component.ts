@@ -17,13 +17,11 @@ import { error } from 'node:console';
   styleUrls: ['./registeruser.component.css']
 })
 export class RegisteruserComponent implements OnInit {
-  //public response:Observable<Idata[]>;
 
   registerForm!: FormGroup;
 
   constructor(private formBuilder: FormBuilder,public service:SharedService,
     private http:HttpClient,private auth:SharedService,private router:Router) {
-    //this.response=this.service.getposts();
   }
 
   ngOnInit() {
@@ -34,14 +32,6 @@ export class RegisteruserComponent implements OnInit {
       confirmpassword: [null, Validators.required]
     });
   }
-
-  /*onSubmit() {
-    //console.log(this.registerForm?.value);
-    this.http.post("http://localhost:5200/api/users",this.registerForm?.value).subscribe((response)=>
-    {console.log(response);
-      this.registerForm.reset();
-    })
-  }*/
   onSubmit(){
     if(this.registerForm.valid){
       this.auth.signup(this.registerForm.value)
@@ -54,6 +44,7 @@ export class RegisteruserComponent implements OnInit {
         ,error:(err=>{
           alert(err.error.message);
           this.registerForm.reset();
+          this.router.navigate(['/login']); 
         })
         
       })
