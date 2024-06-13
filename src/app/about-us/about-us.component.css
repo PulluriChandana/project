@@ -1,19 +1,49 @@
-.container-class{
+.container-class {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    margin: 0;
+    margin: 10;
     padding: 0;
     background-color: #f8f8f8;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 50px 0;
+    opacity: 2; 
+    display: flex;
+    background-color: bisque;
 }
+
 .container {
     max-width: 800px;
-    margin: 20px auto;
+    margin: 0 auto;
     padding: 0 20px;
 }
+
 h1 {
-    color: #333;
+    color: black;
     text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
+
+h2 {
+    color: black;
+    margin-top: 40px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); 
+}
+
 p {
-    color: #666;
+    color: black;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); 
+    font-size: medium;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
