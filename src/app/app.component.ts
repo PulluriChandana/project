@@ -10,6 +10,7 @@ import { ProductComponent } from './product/product.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedService } from './shared.service';
+import { PaymentComponent } from './payment/payment.component';
 
 @Component({
   selector: 'app-root',
@@ -26,6 +27,7 @@ import { SharedService } from './shared.service';
     ProductComponent, 
     ProductDetailsComponent, 
     HttpClientModule,
+    PaymentComponent,
     RouterModule
   ],
   templateUrl: './app.component.html',

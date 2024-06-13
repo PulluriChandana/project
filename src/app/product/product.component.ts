@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { product } from './productmodal';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-product',
@@ -12,6 +13,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
+
 export class ProductComponent implements OnInit {
   data: product[] = [];
   filteredData: product[] = [];
@@ -26,7 +28,7 @@ export class ProductComponent implements OnInit {
     rating: ''
   };
 
-  constructor(private api: SharedService, private router: Router) {}
+  constructor(private api: SharedService, private router: Router, private cartService:CartService) {}
 
   ngOnInit(): void {
     this.displayProducts();
@@ -60,6 +62,11 @@ export class ProductComponent implements OnInit {
         this.sort.rating === 'asc' ? a.rating - b.rating : b.rating - a.rating
       );
     }
+  }
+
+  addToCart(product: product): void {
+    this.cartService.addToCart(product);
+    this.router.navigate(['/cart']);
   }
 
   action(productId:number) {

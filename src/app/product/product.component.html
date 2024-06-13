@@ -1,3 +1,4 @@
+<!-- product.component.html -->
 <div class="container-fluid" style="background-color:rgb(248, 245, 216); padding: 20px;">
     <!-- Sorting and Filtering Section -->
     <div class="row mb-3">
@@ -47,7 +48,7 @@
                             <button (click)="action(item.id)" class="btn btn-sm btn-dark mt-2">
                                 <i class="fa fa-solid fa-info mr-2"></i>&nbsp; View Details
                             </button>
-                            <button class="btn btn-sm btn-warning mt-2">
+                            <button (click)="addToCart(item)" class="btn btn-sm btn-warning mt-2">
                                 <i class="fa fa-cart-plus mr-2"></i>&nbsp; Add to cart
                             </button>
                         </div>
