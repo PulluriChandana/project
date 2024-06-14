@@ -1,39 +1,66 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   <meta charset="UTF-8">
   <title>Responsive Registration Form | CodingLab</title>
   <link rel="stylesheet" href="registeruser.component.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
   <div class="container">
     <div class="title">Registration</div>
     <div class="content">
-      <form [formGroup]="registerForm" (submit)="onSubmit()">
+      <form (ngSubmit)="register()" #registerForm="ngForm">
+        <!-- <form [formGroup]="registerForm" (submit)="onSubmit()"> -->
         <div class="user-details">
           <div class="input-box">
-            <span class="details">Username</span>
-            <input type="text" formControlName="username" placeholder="Enter your username" required>
+            <span class="details">Email</span>
+            <input type="email" id="email" name="email" [(ngModel)]="user.email" required class="form-control"
+              #email="ngModel">
+            <div *ngIf="email.invalid && email.touched" class="text-danger">
+              Email is required
+            </div>
           </div>
           <div class="input-box">
             <span class="details">Phone</span>
-            <input type="text" formControlName="phone" placeholder="Enter your number" required>
+            <input type="tel" id="phone" name="phone" [(ngModel)]="user.phone" required class="form-control"
+              #phone="ngModel">
+            <div *ngIf="phone.invalid && phone.touched" class="text-danger">
+              Phone number is required
+            </div>
+            <!-- <input type="text" formControlName="phone" placeholder="Enter your number" required> -->
           </div>
           <div class="input-box">
             <span class="details">Password</span>
-            <input type="password" formControlName="password" placeholder="Enter your password" required>
+            <input type="password" id="password" name="password" [(ngModel)]="user.password" required
+              class="form-control" #password="ngModel">
+            <div *ngIf="password.invalid && password.touched" class="text-danger">
+              Password is required
+            </div>
+            <!-- <input type="password" formControlName="password" placeholder="Enter your password" required> -->
           </div>
           <div class="input-box">
             <span class="details">Confirm Password</span>
-            <input type="password" formControlName="confirmpassword" placeholder="Confirm your password" required>
+            <!-- <input type="password" formControlName="confirmpassword" placeholder="Confirm your password" required> -->
+            <input type="password" id="reEnterPassword" name="reEnterPassword" [(ngModel)]="user.reEnterPassword"
+              required class="form-control" #reEnterPassword="ngModel">
+            <div *ngIf="reEnterPassword.invalid && reEnterPassword.touched" class="text-danger">
+              Re-entering password is required
+            </div>
+            <div *ngIf="user.password !== user.reEnterPassword && reEnterPassword.touched" class="text-danger">
+              Passwords do not match
+            </div>
           </div>
         </div>
         <div class="button">
-          <button type="submit" class="register-button">Register</button>
+          <button type="submit" class="register-button" [disabled]="registerForm.invalid">Register</button>
+          <!-- <button type="submit" class="register-button">Register</button> -->
         </div>
       </form>
     </div>
   </div>
 </body>
+
 </html>

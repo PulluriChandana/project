@@ -11,12 +11,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedService } from './shared.service';
 import { PaymentComponent } from './payment/payment.component';
 import { RegisteruserComponent } from './registeruser/registeruser.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from './auth.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  providers: [SharedService],
+  providers: [SharedService, AuthService],
   imports: [
+    CommonModule,
+    ReactiveFormsModule,
     RouterOutlet, 
     HomeComponent, 
     AboutUsComponent, 

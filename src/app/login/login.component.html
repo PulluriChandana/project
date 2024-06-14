@@ -7,14 +7,17 @@
 </head>
 <body>
   <div class="wrapper">
-    <form [formGroup]="loginForm" (submit)="onSubmit()">
+    <form (ngSubmit)="login()" action="#">
+    <!-- <form [formGroup]="loginForm" (submit)="onSubmit()"> -->
       <h2>Login</h2>
       <div class="input-field">
-        <input type="text" id="username" formControlName="username" required>
-        <label>Enter your Username</label>
+        <input [(ngModel)]="credentials.email" name="email" required>
+        <!-- <input type="text" id="username" formControlName="username" required> -->
+        <label>Enter your Email</label>
       </div>
       <div class="input-field">
-        <input type="password" id="password" formControlName="password" required>
+        <input type="password" [(ngModel)]="credentials.password" name="password" required>
+        <!-- <input type="password" id="password" formControlName="password" required> -->
         <label>Enter your password</label>
       </div>
       <div class="forget">

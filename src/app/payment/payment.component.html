@@ -57,7 +57,7 @@
             </div>
         </div>
         <div class="submit">
-            <button class="sbtn" [disabled]="!selectedOption" (click)="openSuccess()">Proceed to Pay</button>
+            <button class="sbtn" [disabled]="!selectedOption" (click)="openSuccess()">Proceed to Pay ₹{{totalPrice}}</button>
             <!-- <span style="margin-left: 160px;" *ngIf="!selectedOption">Complete payment mode</span> -->
         </div>
     </div>

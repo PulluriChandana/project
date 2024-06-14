@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../shared.service';
 import { CommonModule } from '@angular/common';
 import { product } from './productmodal';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CartService } from '../cart.service';
 
@@ -28,7 +28,10 @@ export class ProductComponent implements OnInit {
     rating: ''
   };
 
-  constructor(private api: SharedService, private router: Router, private cartService:CartService) {}
+  constructor(
+    private api: SharedService, 
+    private router: Router, 
+    private cartService: CartService) {}
 
   ngOnInit(): void {
     this.displayProducts();
@@ -62,6 +65,9 @@ export class ProductComponent implements OnInit {
         this.sort.rating === 'asc' ? a.rating - b.rating : b.rating - a.rating
       );
     }
+
+    // Reset filteredData to original data when both price and rating sort are empty
+    
   }
 
   addToCart(product: product): void {
@@ -69,7 +75,7 @@ export class ProductComponent implements OnInit {
     this.router.navigate(['/cart']);
   }
 
-  action(productId:number) {
+  action(productId: number) {
     this.router.navigate(['/productdet', productId]);
   }
 }

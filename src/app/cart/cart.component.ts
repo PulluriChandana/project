@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
   imports: [CommonModule],
   standalone:true
 })
+
 export class CartComponent implements OnInit {
   cartItems: { item: product, quantity: number }[] = [];
   totalPrice: number = 0;
@@ -39,6 +40,8 @@ export class CartComponent implements OnInit {
 
   checkout(): void {
     // Navigate to payment component
-    this.router.navigate(['/payment']);
+    // this.router.navigate(['/payment']);
+    this.router.navigate(['/payment'], { queryParams: { total: this.totalPrice } });
+  
   }
 }

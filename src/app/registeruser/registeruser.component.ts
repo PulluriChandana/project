@@ -7,48 +7,42 @@ import { Idata } from '../Idata';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { error } from 'node:console';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-registeruser',
   standalone:true,
   imports: [FormsModule,ReactiveFormsModule,CommonModule,HttpClientModule],
-  providers:[SharedService],
+  providers:[SharedService, AuthService],
   templateUrl: './registeruser.component.html',
   styleUrls: ['./registeruser.component.css']
 })
-export class RegisteruserComponent implements OnInit {
 
-  registerForm!: FormGroup;
+export class RegisteruserComponent {
 
-  constructor(private formBuilder: FormBuilder,public service:SharedService,
-    private http:HttpClient,private auth:SharedService,private router:Router) {
-  }
+  user = {
+    email: '',
+    password: '',
+    reEnterPassword: '',
+    phone: ''
+  };
 
-  ngOnInit() {
-    this.registerForm = this.formBuilder.group({
-      username: [null, Validators.required],
-      phone: [null, Validators.required],
-      password: [null, Validators.required],
-      confirmpassword: [null, Validators.required]
-    });
-  }
-  onSubmit(){
-    if(this.registerForm.valid){
-      this.auth.signup(this.registerForm.value)
-      .subscribe({
-        next:(res=>{
-          alert(res.message);
-          this.registerForm.reset();
-          this.router.navigate(['login']);
-        })
-        ,error:(err=>{
-          alert(err.error.message);
-          this.registerForm.reset();
-          this.router.navigate(['/login']); 
-        })
-        
-      })
-      console.log(this.registerForm.value)
+  constructor(private authService: AuthService) { }
+
+  register() {
+    if (this.user.password !== this.user.reEnterPassword) {
+      alert('Passwords do not match!');
+      return;
     }
+
+    this.authService.register(this.user).subscribe(
+      response => {
+        alert('User registered successfully');
+      },
+      error => {
+        console.error('Error registering user', error);
+        alert('Error registering user');
+      }
+    );
   }
 }
